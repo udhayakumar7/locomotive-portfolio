@@ -1,0 +1,145 @@
+.hero-section{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #a1a1a1;
+    position: relative;
+}
+.hero-section .hero{
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+    max-height: 90vh;
+    bottom: 0;
+    z-index: 1;
+}
+.big-name {
+    position: absolute;
+    top: 25vh;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.big-name h1{
+    font-size: 16vw;
+    color: #fff;
+    font-family: "FG-SM", sans-serif;
+    font-weight: 600;
+}
+.big-name h1:first-child{
+    padding-right: 20px;
+}
+
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profession{
+    position: absolute;
+    right: 80px;
+}
+.detail-banner{
+    margin-top: 40px;
+}
+.profession p{
+  font-size: 40px;
+  color: #fff;
+  line-height: 52px;
+  margin: 0;
+  font-family: "FG-R";
+}
+
+.profession svg{
+    height: 40px;
+    width: 40px;
+    font-size: 40px;
+   
+}
+
+.shape{
+
+    background-color: #222;
+    border-radius: 0px 50px 50px 0px;
+    padding: 20px;
+}
+
+.shape p {
+ font-size: 20px;
+  color: #fff;
+  margin: 0;
+  font-family: "FG-L";
+  margin: 0;
+}
+.mobile-info{
+    display: none;
+}
+
+@media screen and (max-width:992px){
+
+    .hero-section .hero {
+        max-height: 70vh;
+    }   
+    .shape, .profession{
+          display: none;
+    }
+    .big-name h1{
+        font-size: 20vw;
+    }
+    .mobile-info{
+        display: flex;
+        width: 300px;
+        background: #000000b0;
+        height: 55px;
+        margin: auto;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        align-items: center;
+        justify-content: center;
+        gap: 11px;
+        color: #fff;
+    }
+
+    .mobile-info   p{
+        font-size: 18px;
+        color: #fff;
+        font-weight: 500;
+        margin: 0;
+         font-family: "Open Sans";
+    }
+    .mobile-info   p.blink{
+        animation: blink 2s ease-in-out infinite;
+        color: #32CD32 ;
+    }
+    .overlay {
+           height: auto;
+           bottom: 30px;
+    }
+    
+}
+
+@media screen and (max-width: 540px){
+    .hero-section .hero {
+        max-height: 70vh;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+      color: #32CD32;
+    }
+    50% {
+      color: #fff;
+    }
+}

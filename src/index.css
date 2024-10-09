@@ -1,0 +1,27 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+@font-face {
+    font-family: "FG-R";
+    src: url('./assets/fonts/FoundersGrotesk-Regular.otf');
+}
+@font-face {
+    font-family: "FG-M";
+    src: url('./assets/fonts/FoundersGrotesk-Medium.otf');
+}
+@font-face {
+    font-family: "FG-SM";
+    src: url('./assets/fonts/FoundersGrotesk-SemiboldItalic.otf');
+}
+@font-face {
+    font-family: "FG-B";
+    src: url('./assets/fonts/FoundersGroteskXCond-Bold.otf');
+}
+@font-face {
+    font-family: "FG-L";
+    src: url('./assets/fonts/FoundersGrotesk-Light.otf');
+}
