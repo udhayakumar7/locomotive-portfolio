@@ -35,6 +35,65 @@
     background-color: darkcyan;
   }
 
+  .mobile-menu-ham{
+    position: fixed;
+    top: 30px;
+    right: 50px;
+    background: #fff;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: scale(1);
+    
+  }
+
+   .ham-burger{
+    position: relative;
+   }
+  .ham-burger::before{
+    content: '';
+    height: 2px;
+    width: 50px;
+    background: #222;
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    transition: transform 0.3s;
+  }
+  .ham-burger::after{
+    content: '';
+    height: 2px;
+    width: 50px;
+    background: #222;
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 15px;
+    transition: transform 0.3s;
+  }
+
+  .ham-burger.add-class::after{
+    top: 40px;
+    left: 15px;
+    transform: rotate(-45deg);
+  }
+
+  .ham-burger.add-class::before{
+    top: 40px;
+    left: 15px;
+    transform: rotate(45deg);
+  }
+  .svgCurve{
+    position: absolute;
+    top: 0;
+    left: -99px;
+    width: 100px;
+    height: 100%;
+    fill: rgb(113 113 113 / 50%);
+    stroke: none;
+}
 
   @media screen and (max-width:992px){
     .menu-link{
@@ -42,5 +101,32 @@
     }
     .navbar-custom {
         padding: 20px;
+    }
+
+    .mobile-menu-ham {
+      height: 60px;
+      width: 60px;
+      top: 13px;
+      right: 20px;
+    }
+    .ham-burger::before {
+      width: 30px;
+      top: 22px;
+    }
+    .ham-burger::after {
+      width: 30px;
+      top: 38px;
+    }
+    .ham-burger.add-class::before {
+      top: 28px;
+    }
+    .ham-burger.add-class::after {
+      top: 28px;
+    }
+    .menu {
+      width: 100% !important;
+    }
+    .menu .nav {
+        font-size: 36px;
     }
   }

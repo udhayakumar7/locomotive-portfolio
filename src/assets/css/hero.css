@@ -54,9 +54,9 @@
     margin-top: 40px;
 }
 .profession p{
-  font-size: 40px;
+  font-size: 30px;
   color: #fff;
-  line-height: 52px;
+  line-height: 45px;
   margin: 0;
   font-family: "FG-R";
 }
@@ -85,6 +85,19 @@
 .mobile-info{
     display: none;
 }
+
+.blankbox{
+    position: absolute;
+    width: 100%;
+    background: #a1a1a1;
+    height: 100%;
+    bottom: 0px;
+    transform-origin: bottom right;
+    transform: rotate(350deg);
+    right: 16px;
+}  
+
+
 
 @media screen and (max-width:992px){
 

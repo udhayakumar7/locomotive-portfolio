@@ -5,17 +5,54 @@ import {motion} from 'framer-motion'
 import Header from './Header';
 import { GoArrowDownRight } from "react-icons/go";
 import  FLAG  from '../assets/images/flag.png';
-
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import { useRef, useLayoutEffect } from 'react';
 
 const Hero = () => {
+
+  const firstText = useRef(null);
+  const secondText = useRef(null);
+  const slider = useRef(null);
+  let xPercent = 0;
+  let direction = -1;
+
+  useLayoutEffect( () => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(slider.current, {
+      scrollTrigger: {
+        trigger: document.documentElement,
+        scrub: 0.25,
+        start: 0,
+        end: window.innerHeight,
+        onUpdate: e => direction = e.direction * -1
+      },
+      
+    })
+    requestAnimationFrame(animate);
+  }, [])
+
+  const animate = () => {
+    if(xPercent < -100){
+      xPercent = 0;
+    }
+    else if(xPercent > 0){
+      xPercent = -100;
+    }
+    gsap.set(firstText.current, {xPercent: xPercent})
+    gsap.set(secondText.current, {xPercent: xPercent})
+    requestAnimationFrame(animate);
+    xPercent += 0.1 * direction;
+  }
+
   return (
     <div className='hero-section' data-scroll-section>
         
            <img className='hero' src={BANNER} alt="banner" />
 
-           <div className='big-name' data-scroll   data-scroll-speed="0.50" >
-            <motion.h1 initial={{x:0}} animate={{x: '-100%'}}  transition={{repeat: Infinity, ease:'linear', duration: '10' }}> KUMAR - FRONTEND DEVELOPER</motion.h1>
-            <motion.h1 initial={{x:0}} animate={{x: '-100%'}}  transition={{repeat: Infinity, ease:'linear', duration: '10' }}> KUMAR - FRONTEND DEVELOPER</motion.h1>
+           <div className='big-name' data-scroll   data-scroll-speed="0.50" ref={slider} >
+            <h1 ref={firstText}> KUMAR - FRONTEND DEVELOPER</h1>
+            <h1 ref={secondText}> KUMAR - FRONTEND DEVELOPER</h1>
            </div>
            <div className='overlay'>
             <div className='shape'>
@@ -35,6 +72,8 @@ const Hero = () => {
             </div>
 
            </div>
+
+      
           
     </div>
   )
